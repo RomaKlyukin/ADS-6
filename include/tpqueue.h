@@ -49,12 +49,12 @@ class TPQueue {
   const T& pop() {
     // проверяем, есть ли в очереди элементы
     assert(count > 0);
-    T item = arr[begin++];
+    //T item = arr[begin++];
     count--;
     // проверка кругового заполнения очереди
     if (begin > sizeM)
       begin -= sizeM + 1; // возвращаем begin на начало очереди
-    return item;
+    return arr[begin++];
   }
   // функция чтения элемента на первой позиции
  char get() const {
