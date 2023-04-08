@@ -18,10 +18,11 @@ class TPQueue {
   int sizeM; // максимальное количество элементов в очереди размер(массива)
   int begin, end;
   int count; // счетчик элементов
+
  public:
   // конструктор по умолчанию
   TPQueue():sizeM(size), begin(0), end(0), count(0) {
-    arr = new T [sizeM+1];
+    arr = new T[sizeM+1];
   }
   void push(const T& item) {
     // проверяем, ести ли свободное место в очереди
@@ -30,7 +31,7 @@ class TPQueue {
     if (count != 0) {
       for (int i = begin; i < end; i++) {
         if (item.prior > arr[i].prior) {
-          cur=i;
+          cur = i;
           break;
         }
       }
@@ -57,7 +58,7 @@ class TPQueue {
     return arr[begin++];
   }
   // функция чтения элемента на первой позиции
- char get() const {
+  char get() const {
     // проверяем, есть ли в очереди элементы
     assert(count > 0);
     return arr[begin].ch;
