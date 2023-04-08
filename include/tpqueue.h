@@ -2,6 +2,8 @@
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
 
+#include <cassert>
+
 struct SYM {
   char ch;
   int prior;
@@ -21,7 +23,7 @@ class TPQueue {
   TPQueue():sizeM(size), begin(0), end(0), count(0) {
     arr = new T [sizeM+1];
   }
-  void push(SYM& item) {
+  void push(const T& item) {
     // проверяем, ести ли свободное место в очереди
     int cur = end;
     assert(count < sizeM);
@@ -44,7 +46,7 @@ class TPQueue {
     if (end > sizeM)
       end -= sizeM + 1; // возвращаем end на начало очереди
   }
-  T pop() {
+  const T& pop() {
     // проверяем, есть ли в очереди элементы
     assert(count > 0);
     T item = arr[begin++];
